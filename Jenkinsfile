@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_CREDENTIALS = 'new-one-key'
+        
         GIT_REPO = 'git@github.com:Ekjot-kaur479/megamart-ecommerce.git'
         BRANCH = 'main'
         EC2_IP = '3.82.20.165'
@@ -36,7 +36,7 @@ pipeline {
 
         stage('Deploy to EC2 Apache') {
             steps {
-                sshagent (credentials: ["${env.SSH_KEY}"]) {
+                sshagent (credentials: ['new-one-key']) {
                     sh """
                         scp -o StrictHostKeyChecking=no -r build/* ${EC2_USER}@${EC2_IP}:${APACHE_DIR}/
                     """
