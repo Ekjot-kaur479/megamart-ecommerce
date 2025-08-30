@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        
+        GIT_CREDENTIALS = 'new-one-key'
         GIT_REPO = 'git@github.com:Ekjot-kaur479/megamart-ecommerce.git'
         BRANCH = 'main'
         EC2_IP = '3.82.20.165'
